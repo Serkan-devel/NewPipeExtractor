@@ -53,8 +53,8 @@ public class YoutubeStreamExtractorDASHTest {
 
     @Test
     public void testRegularStreams() {
-        assertEquals(0, info.getAudioStreams().size());
-        assertEquals(0, info.getVideoOnlyStreams().size());
+        assertEquals(5, info.getAudioStreams().size());
+        assertEquals(3, info.getVideoOnlyStreams().size());
         assertEquals(4, info.getVideoStreams().size());
     }
 

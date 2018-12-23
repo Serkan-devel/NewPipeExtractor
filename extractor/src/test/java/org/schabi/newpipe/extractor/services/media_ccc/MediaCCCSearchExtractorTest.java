@@ -10,6 +10,7 @@ import org.schabi.newpipe.extractor.search.SearchExtractor;
 import org.schabi.newpipe.extractor.services.media_ccc.extractors.MediaCCCSearchExtractor;
 import org.schabi.newpipe.extractor.utils.Localization;
 
+import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertTrue;
 import static org.schabi.newpipe.extractor.ServiceList.MediaCCC;
 
@@ -32,5 +33,27 @@ public class MediaCCCSearchExtractorTest {
     public void testCount() throws Exception {
         assertTrue(Integer.toString(itemsPage.getItems().size()),
                 itemsPage.getItems().size() >= 25);
+    }
+
+    @Test
+    public void testServiceId() throws Exception {
+        assertEquals(2, extractor.getServiceId());
+    }
+
+    @Test
+    public void testName() throws Exception {
+        assertEquals("Hardening Open Source Development", itemsPage.getItems().get(0).getName());
+    }
+
+    @Test
+    public void testUrl() throws Exception {
+        assertEquals("https://api.media.ccc.de/public/events/9e774be1-eb68-4ccc-94bd-a65f9abd752d",
+                itemsPage.getItems().get(0).getUrl());
+    }
+
+    @Test
+    public void testThumbnailUrl() throws Exception {
+        assertEquals("https://static.media.ccc.de/media/congress/2017/9249-hd.jpg",
+                itemsPage.getItems().get(0).getThumbnailUrl());
     }
 }
